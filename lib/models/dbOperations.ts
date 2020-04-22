@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import * as config from "../config/keys";
+import { logger } from "../logger";
 
 export class DBOperations {
 
@@ -17,8 +18,8 @@ export class DBOperations {
                 useUnifiedTopology: true,
                 useFindAndModify: false
             })
-            .then(() => console.log("MongoDB connected succesfully"))
-            .catch((err) => console.log(err));
+            .then(() => logger.info("MongoDB connected succesfully"))
+            .catch((err) => logger.error(err));
     }
 
 }

@@ -12,13 +12,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const controller = __importStar(require("../controllers"));
+const middlewares_1 = require("../middlewares");
 class AuthRoute {
     constructor() {
         this.router = express_1.default.Router();
     }
     authApi() {
-        this.router.post('/register', controller.register);
-        this.router.post('/login', controller.login);
+        this.router.post('/register', middlewares_1.jwtMiddleware.createAuthToken, controller.register);
+        this.router.post('/login', middlewares_1.jwtMiddleware.createAuthToken, controller.login);
         return this.router;
     }
 }

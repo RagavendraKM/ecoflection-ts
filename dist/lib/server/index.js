@@ -12,15 +12,24 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const bodyParser = __importStar(require("body-parser"));
+const http = __importStar(require("http"));
 const compression_1 = __importDefault(require("compression"));
+const socket_1 = require("../socket");
+const logger_1 = require("../logger");
 const routes_1 = require("../routes");
+// import * as socketio from 'socket.io';
 class ExpressApp {
+    // public socketObj: Socket
     constructor() {
-        this.PORT = process.env.PORT || "3000";
-        this.app = express_1.default();
+        this.PORT = process.env.PORT || "3001";
+        this.setupExpress();
         this._init();
         this.setupRoutes();
         this.listenServer();
+        // socketInstance.setupSocket(this.app);
+    }
+    setupExpress() {
+        this.app = express_1.default();
     }
     _init() {
         this.app.use(compression_1.default());
@@ -47,14 +56,14 @@ class ExpressApp {
         this.app.use('/product', routes_1.productRoute.productApi());
         this.app.use('/category', routes_1.categoryRoute.categoryApi());
         this.app.use('/', (req, res) => {
-            console.log("Hello /");
+            logger_1.logger.info("Hello /");
             res.send("Hello /");
         });
     }
     listenServer() {
-        this.app.listen(process.env.PORT || this.PORT, () => {
-            console.log(`server running on port ${this.PORT}`);
-        });
+        const server = http.createServer(this.app).listen(this.PORT);
+        logger_1.logger.info(`Server running on PORT ${this.PORT}`, server);
+        socket_1.socketInstance.setupSocket(server);
     }
 }
 exports.ExpressApp = ExpressApp;

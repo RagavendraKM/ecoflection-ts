@@ -9,50 +9,51 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const logger_1 = require("../logger");
 class Functions {
     constructor(modelName) {
         this.model = modelName;
     }
     find(cond) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("cond is ", cond);
+            logger_1.logger.info("cond is ", cond);
             try {
                 let response = yield this.model.find(cond);
-                console.log("response ", response);
+                logger_1.logger.info("response ", response);
                 return response;
             }
             catch (err) {
-                console.log(err);
+                logger_1.logger.error(err);
                 throw err;
             }
         });
     }
     insert(values) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("req.body is ", values);
+            logger_1.logger.info("req.body is ", values);
             let data = yield new this.model(values);
-            console.log("data ", data);
+            logger_1.logger.info("data ", data);
             try {
                 let dataSaved = yield data.save();
-                console.log(dataSaved);
+                logger_1.logger.info(dataSaved);
                 return dataSaved;
             }
             catch (err) {
-                console.log(err);
+                logger_1.logger.error(err);
                 throw err;
             }
         });
     }
     update(cond, query, showNew) {
         return __awaiter(this, void 0, void 0, function* () {
-            console.log("new values are ", cond, query);
+            logger_1.logger.info("new values are ", cond);
             let foundProduct = yield this.model.findOneAndUpdate(cond, query, { new: showNew });
             try {
-                console.log("foundProduct", foundProduct);
+                logger_1.logger.info("foundProduct", foundProduct);
                 return foundProduct;
             }
             catch (err) {
-                console.log(err);
+                logger_1.logger.error(err);
                 throw err;
             }
         });

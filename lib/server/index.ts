@@ -1,20 +1,29 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import * as bodyParser from "body-parser";
+import * as http from "http";
 import compression from "compression";
-import * as http from 'http';
+import { socketInstance } from '../socket';
+import { logger } from '../logger';
 
 import { authRoute, productRoute, categoryRoute } from '../routes';
+// import * as socketio from 'socket.io';
 
 export class ExpressApp {
 
   public app: Express;
-  private PORT: string | number = process.env.PORT || "3000";
+  private PORT: string | number = process.env.PORT || "3001";
+  // public socketObj: Socket
 
   constructor() {
-    this.app = express();
+    this.setupExpress();
     this._init();
     this.setupRoutes();
     this.listenServer();
+    // socketInstance.setupSocket(this.app);
+  }
+
+  setupExpress() {
+    this.app = express();
   }
 
   private _init(): void {
@@ -43,15 +52,15 @@ export class ExpressApp {
     this.app.use('/product', productRoute.productApi());
     this.app.use('/category', categoryRoute.categoryApi());
     this.app.use('/', (req: Request, res: Response) => {
-      console.log("Hello /");
+      logger.info("Hello /");
       res.send("Hello /");
     });
   }
 
   listenServer() {
-    this.app.listen(process.env.PORT || this.PORT, () => {
-      console.log(`server running on port ${this.PORT}`);
-    })
+    const server = http.createServer(this.app).listen(this.PORT);
+    logger.info(`Server running on PORT ${this.PORT}`, server);
+    socketInstance.setupSocket(server);
   }
 
 }

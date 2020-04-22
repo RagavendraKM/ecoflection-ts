@@ -46,13 +46,13 @@ class ExpressApp {
         this.app.use('/user', routes_1.authRoute.authApi());
         this.app.use('/product', routes_1.productRoute.productApi());
         this.app.use('/', (req, res) => {
-            console.log("Hello /");
+            logger.info("Hello /");
             res.send("Hello /");
         });
     }
     listenServer() {
         this.app.listen(process.env.PORT || this.PORT, () => {
-            console.log(`server running on port ${this.PORT}`);
+            logger.info(`server running on port ${this.PORT}`);
         });
     }
 }

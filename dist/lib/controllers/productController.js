@@ -12,17 +12,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const models_1 = require("../models");
 const database_1 = require("../utils/database");
 const responseController_1 = require("./responseController");
+const logger_1 = require("../logger");
+// import { socket } from '../socket';
 const ProductModel = new database_1.Functions(models_1.Product);
 const CategoriesModel = new database_1.Functions(models_1.Categories);
 function getProducts(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let products = yield ProductModel.find({});
-            console.log("In controller ", products);
+            logger_1.logger.info("In controller ", products);
             responseController_1.successFunction(res, products, "Products are ");
         }
         catch (err) {
-            console.log("In controller err ", err);
+            logger_1.logger.error("In controller err ", err);
             responseController_1.errorFunction(res, err, "Error while finding Product");
         }
     });
@@ -31,14 +33,14 @@ exports.getProducts = getProducts;
 function getProductById(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            console.log(req.params.id);
+            logger_1.logger.info(req.params.id);
             let param = { _id: req.params.id };
             let product = yield ProductModel.find(param);
-            console.log("In controller ", product);
+            logger_1.logger.info("In controller ", product);
             responseController_1.successFunction(res, product, "Product is ");
         }
         catch (err) {
-            console.log("In controller err ", err);
+            logger_1.logger.error("In controller err ", err);
             responseController_1.errorFunction(res, err, "Error while finding Product");
         }
     });
@@ -48,13 +50,14 @@ function addProduct(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             let newProduct = yield ProductModel.insert(req.body);
-            console.log("In controller ", newProduct);
+            logger_1.logger.info("In controller ", newProduct);
             let updatedOne = yield updateQuantity(req.body);
-            console.log("updatedOne", updatedOne);
+            logger_1.logger.info("updatedOne", updatedOne);
+            // socket.emitEvent("productAdded", { data: newProduct });
             responseController_1.successFunction(res, newProduct, "Product is ");
         }
         catch (err) {
-            console.log("In controller err ", err);
+            logger_1.logger.error("In controller err ", err);
             responseController_1.errorFunction(res, err, "Error while adding Product");
         }
     });
@@ -63,7 +66,7 @@ exports.addProduct = addProduct;
 function updateQuantity(body) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            console.log("body is ", body);
+            logger_1.logger.info("body is ", body);
             let updatedProduct = yield CategoriesModel.update({ name: body.name }, {
                 $inc: {
                     quantity: parseFloat(body.quantity)
@@ -72,7 +75,7 @@ function updateQuantity(body) {
             return updatedProduct;
         }
         catch (err) {
-            console.log("In controller err ", err);
+            logger_1.logger.info("In controller err ", err);
             throw err;
         }
     });

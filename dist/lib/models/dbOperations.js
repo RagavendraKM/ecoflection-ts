@@ -12,6 +12,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const config = __importStar(require("../config/keys"));
+const logger_1 = require("../logger");
 class DBOperations {
     constructor() {
         this.db = config.db.mongoURI;
@@ -23,8 +24,8 @@ class DBOperations {
             useUnifiedTopology: true,
             useFindAndModify: false
         })
-            .then(() => console.log("MongoDB connected succesfully"))
-            .catch((err) => console.log(err));
+            .then(() => logger_1.logger.info("MongoDB connected succesfully"))
+            .catch((err) => logger_1.logger.error(err));
     }
 }
 exports.DBOperations = DBOperations;

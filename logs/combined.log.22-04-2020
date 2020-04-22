@@ -1,0 +1,22 @@
+2020-04-22T13:40:58.781Z [undefined] [32minfo[39m: 	Server running on PORT 3000 .. WOW
+22-04-2020 19:40:20 [32minfo[39m: 	Server running on PORT 3000 .. WOW
+22-04-2020 19:48:42 [32minfo[39m: 	Server running on PORT 3000 .. WOW
+22-04-2020 19:51:18 info: 	Server running on PORT 3000 .. WOW
+22-04-2020 20:22:32 info: 	Hi
+22-04-2020 20:22:32 info: 	Server running on PORT 3000 .. WOW
+22-04-2020 20:22:32 info: 	server running on port 3001
+22-04-2020 20:22:35 info: 	MongoDB connected succesfully
+22-04-2020 20:33:30 info: 	Server running on PORT 3001
+22-04-2020 20:33:36 info: 	MongoDB connected succesfully
+22-04-2020 20:36:56 info: 	Server running on PORT 3001
+22-04-2020 20:36:56 info: 	In setupSocket
+22-04-2020 20:36:58 info: 	MongoDB connected succesfully
+22-04-2020 20:50:39 info: 	Server running on PORT 3001
+22-04-2020 20:50:44 info: 	MongoDB connected succesfully
+22-04-2020 20:52:55 info: 	req.body is 
+22-04-2020 20:52:55 info: 	data 
+22-04-2020 20:52:56 info: 	{ _id: 5ea0614fe180bf2348402853, name: 'PP5', quantity: 0, __v: 0 }
+22-04-2020 20:52:56 info: 	In controller 
+22-04-2020 20:52:56 info: 	Inside emitEvent
+22-04-2020 20:52:56 error: 	In controller err Cannot read property 'emit' of undefined
+22-04-2020 20:52:56 error: 	ErrorCannot read property 'emit' of undefined

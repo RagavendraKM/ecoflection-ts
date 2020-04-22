@@ -1,5 +1,6 @@
 import express, { Router, Request, Response } from 'express';
 import * as controller from '../controllers';
+import { jwtMiddleware } from '../middlewares';
 
 export class AuthRoute {
 
@@ -9,8 +10,8 @@ export class AuthRoute {
     }
 
     authApi(): Router {
-        this.router.post('/register', controller.register);
-        this.router.post('/login', controller.login);
+        this.router.post('/register', jwtMiddleware.createAuthToken ,controller.register);
+        this.router.post('/login', jwtMiddleware.createAuthToken, controller.login);
         return this.router;
     }
 }

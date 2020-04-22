@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import mongoose, { Document } from "mongoose";
 import { successFunction, errorFunction } from "../controllers/responseController"
+import { logger } from "../logger";
 
 export class Functions {
     model: mongoose.Model<any, {}>
@@ -10,39 +11,39 @@ export class Functions {
     }
 
     async find(cond: any) {
-        console.log("cond is ", cond);
+        logger.info("cond is ", cond);
         try {
             let response = await this.model.find(cond);
-            console.log("response ", response);
+            logger.info("response ", response);
             return response;
         } catch (err) {
-            console.log(err);
+            logger.error(err);
             throw err;
         }
     }
 
     async insert(values: any) {
-        console.log("req.body is ", values);
+        logger.info("req.body is ", values);
         let data: Document = await new this.model(values);
-        console.log("data ", data);
+        logger.info("data ", data);
         try {
             let dataSaved = await data.save();
-            console.log(dataSaved);
+            logger.info(dataSaved);
             return dataSaved;
         } catch (err) {
-            console.log(err);
+            logger.error(err);
             throw err;
         }
     }
 
     async update(cond: any, query: any, showNew?: boolean) {
-        console.log("new values are ", cond, query);
+        logger.info("new values are ", cond);
         let foundProduct = await this.model.findOneAndUpdate(cond, query, {new: showNew});
          try {
-                console.log("foundProduct", foundProduct);
+                logger.info("foundProduct", foundProduct);
                 return foundProduct;
             } catch (err) {
-                console.log(err);
+                logger.error(err);
                 throw err;
             }
     }
