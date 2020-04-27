@@ -1,0 +1,75 @@
+27-04-2020 13:14:15 info: 	Server running on PORT 3001 
+27-04-2020 13:14:17 info: 	MongoDB connected succesfully 
+27-04-2020 13:22:59 info: 	Server running on PORT 3001 
+27-04-2020 13:23:01 info: 	MongoDB connected succesfully 
+27-04-2020 13:23:27 error: 	ErrorCannot read property 'code' of undefined 
+27-04-2020 13:23:28 info: 	Hello / 
+27-04-2020 13:24:14 error: 	ErrorCannot read property 'code' of undefined 
+27-04-2020 13:24:15 info: 	Hello / 
+27-04-2020 13:38:50 error: 	ErrorCannot read property 'code' of undefined 
+27-04-2020 13:38:50 info: 	Hello / 
+27-04-2020 13:39:07 error: 	ErrorCannot read property 'code' of undefined 
+27-04-2020 13:39:08 info: 	Hello / 
+27-04-2020 13:44:49 info: 	Server running on PORT 3001 
+27-04-2020 13:44:52 info: 	MongoDB connected succesfully 
+27-04-2020 13:45:33 error: 	ErrorCannot read property 'code' of undefined 
+27-04-2020 13:45:35 info: 	Hello / 
+27-04-2020 13:46:14 error: 	ErrorCannot read property 'code' of undefined 
+27-04-2020 13:46:14 info: 	Hello / 
+27-04-2020 13:52:01 info: 	Server running on PORT 3001 
+27-04-2020 13:52:04 info: 	MongoDB connected succesfully 
+27-04-2020 13:53:19 error: 	ErrorUnexpected token o in JSON at position 1 
+27-04-2020 13:53:23 info: 	Hello / 
+27-04-2020 13:56:08 info: 	Server running on PORT 3001 
+27-04-2020 13:56:10 info: 	MongoDB connected succesfully 
+27-04-2020 13:57:05 error: 	ErrorUnexpected token o in JSON at position 1 
+27-04-2020 13:57:12 info: 	Hello / 
+27-04-2020 14:02:33 info: 	Server running on PORT 3001 
+27-04-2020 14:02:34 info: 	MongoDB connected succesfully 
+27-04-2020 14:03:00 info: 	DATA 
+27-04-2020 14:03:01 info: 	Hello / 
+27-04-2020 14:31:32 info: 	Server running on PORT 3001 
+27-04-2020 14:31:33 info: 	MongoDB connected succesfully 
+27-04-2020 14:31:37 info: 	Hello / 
+27-04-2020 14:33:34 info: 	DATA 
+27-04-2020 14:33:35 info: 	Hello / 
+27-04-2020 14:37:39 info: 	Server running on PORT 3001 
+27-04-2020 14:37:43 info: 	MongoDB connected succesfully 
+27-04-2020 14:38:27 info: 	DATA 
+27-04-2020 14:38:28 info: 	Hello / 
+27-04-2020 14:40:54 info: 	Server running on PORT 3001 
+27-04-2020 14:40:57 info: 	MongoDB connected succesfully 
+27-04-2020 14:45:19 info: 	DATA 
+27-04-2020 14:45:20 info: 	Hello / 
+27-04-2020 14:49:01 info: 	Server running on PORT 3001 
+27-04-2020 14:49:02 info: 	MongoDB connected succesfully 
+27-04-2020 14:49:29 info: 	DATA 
+27-04-2020 14:49:30 info: 	Hello / 
+27-04-2020 14:53:14 info: 	Server running on PORT 3001 
+27-04-2020 14:53:16 info: 	MongoDB connected succesfully 
+27-04-2020 14:53:43 info: 	DATA 
+27-04-2020 14:53:46 info: 	Hello / 
+27-04-2020 15:46:02 info: 	Server running on PORT 3001 
+27-04-2020 15:46:07 info: 	MongoDB connected succesfully 
+27-04-2020 15:46:37 info: 	DATA 
+27-04-2020 15:46:39 info: 	Hello / 
+27-04-2020 16:08:50 info: 	DATA 
+27-04-2020 16:09:00 info: 	Hello / 
+27-04-2020 16:56:13 info: 	Server running on PORT 3001 
+27-04-2020 16:56:15 info: 	MongoDB connected succesfully 
+27-04-2020 16:56:29 info: 	DATA 
+27-04-2020 16:56:30 info: 	Hello / 
+27-04-2020 16:57:14 info: 	Server running on PORT 3001 
+27-04-2020 16:57:14 info: 	MongoDB connected succesfully 
+27-04-2020 16:57:39 error: 	ErrorPeople API has not been used in project 502296586742 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=502296586742 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. 
+27-04-2020 16:57:39 info: 	Hello / 
+27-04-2020 17:00:26 info: 	Server running on PORT 3001 
+27-04-2020 17:00:28 info: 	MongoDB connected succesfully 
+27-04-2020 17:00:45 error: 	ErrorpersonFields mask is required. Please specify one or more valid paths. Valid paths are documented at https://developers.google.com/people/api/rest/v1/people/get. 
+27-04-2020 17:00:46 info: 	Hello / 
+27-04-2020 17:05:19 info: 	Server running on PORT 3001 
+27-04-2020 17:05:21 info: 	MongoDB connected succesfully 
+27-04-2020 17:05:29 info: 	DATA 
+27-04-2020 17:05:30 info: 	Hello / 
+27-04-2020 17:06:45 info: 	DATA 
+27-04-2020 17:06:45 info: 	Hello / 

@@ -1,0 +1,10 @@
+27-04-2020 13:23:27 error: 	ErrorCannot read property 'code' of undefined 
+27-04-2020 13:24:14 error: 	ErrorCannot read property 'code' of undefined 
+27-04-2020 13:38:50 error: 	ErrorCannot read property 'code' of undefined 
+27-04-2020 13:39:07 error: 	ErrorCannot read property 'code' of undefined 
+27-04-2020 13:45:33 error: 	ErrorCannot read property 'code' of undefined 
+27-04-2020 13:46:14 error: 	ErrorCannot read property 'code' of undefined 
+27-04-2020 13:53:19 error: 	ErrorUnexpected token o in JSON at position 1 
+27-04-2020 13:57:05 error: 	ErrorUnexpected token o in JSON at position 1 
+27-04-2020 16:57:39 error: 	ErrorPeople API has not been used in project 502296586742 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/people.googleapis.com/overview?project=502296586742 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. 
+27-04-2020 17:00:45 error: 	ErrorpersonFields mask is required. Please specify one or more valid paths. Valid paths are documented at https://developers.google.com/people/api/rest/v1/people/get. 

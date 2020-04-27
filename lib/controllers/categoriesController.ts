@@ -35,7 +35,7 @@ export async function addCategory(req: Request, res: Response) {
     try {
         let newCategory: any = await CategoriesModel.insert(req.body);
         logger.info("In controller ", newCategory);
-        socketInstance.emitEvent("addCategory", { data: newCategory });
+        // socketInstance.emitEvent("addCategory", { data: newCategory });
         successFunction(res, newCategory, "New Quantity is ");
     } catch (err) {
         logger.error("In controller err ", err);

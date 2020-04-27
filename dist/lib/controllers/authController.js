@@ -65,4 +65,34 @@ function login(req, res) {
     });
 }
 exports.login = login;
+function resetPassword(req, res) {
+    return __awaiter(this, void 0, void 0, function* () {
+        logger_1.logger.info("In Reset Password", req.body);
+        try {
+            let { currentPwd, newPwd, confirmPwd, userId } = req.body;
+            let existsUser = yield UserModel.find({ email: userId });
+            if (existsUser.length) {
+                let pwd = existsUser.map(user => user.password).toString();
+                let isMatch = yield service_1.authService.comparePassword(currentPwd, pwd);
+                if (isMatch) {
+                    let password = yield service_1.authService.encryptPassword(newPwd);
+                    if (confirmPwd !== newPwd) {
+                        responseController_1.errorFunction(res, "Password doesn't match", "Please check again");
+                    }
+                    let changedUser = yield UserModel.update({ email: userId }, {
+                        $set: {
+                            password: password
+                        }
+                    }, true);
+                    console.log("changedUser", changedUser);
+                    responseController_1.successFunction(res, changedUser, "Password Reset Done");
+                }
+            }
+        }
+        catch (err) {
+            responseController_1.errorFunction(res, err, "Some DB error while resetting password");
+        }
+    });
+}
+exports.resetPassword = resetPassword;
 //# sourceMappingURL=authController.js.map

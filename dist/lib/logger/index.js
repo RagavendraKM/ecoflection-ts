@@ -4,7 +4,7 @@ const winston_1 = require("winston");
 require("winston-daily-rotate-file");
 const { combine, timestamp, label, printf } = winston_1.format;
 const myFormat = printf(({ level, message, timestamp }) => {
-    return `${timestamp} ${level}: ${message}`;
+    return `${timestamp} ${level}: ${message} `;
 });
 const logFormat = winston_1.format.combine(
 // format.colorize(),

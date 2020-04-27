@@ -13,7 +13,6 @@ const models_1 = require("../models");
 const responseController_1 = require("./responseController");
 const database_1 = require("../utils/database");
 const logger_1 = require("../logger");
-const socket_1 = require("../socket");
 const CategoriesModel = new database_1.Functions(models_1.Categories);
 function getCategories(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -50,7 +49,7 @@ function addCategory(req, res) {
         try {
             let newCategory = yield CategoriesModel.insert(req.body);
             logger_1.logger.info("In controller ", newCategory);
-            socket_1.socketInstance.emitEvent("addCategory", { data: newCategory });
+            // socketInstance.emitEvent("addCategory", { data: newCategory });
             responseController_1.successFunction(res, newCategory, "New Quantity is ");
         }
         catch (err) {

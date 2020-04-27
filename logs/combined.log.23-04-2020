@@ -1,0 +1,239 @@
+23-04-2020 11:33:50 info: 	Server running on PORT 3001
+23-04-2020 11:33:54 info: 	MongoDB connected succesfully
+23-04-2020 11:35:56 error: 	Error
+23-04-2020 11:40:48 info: 	Server running on PORT 3001
+23-04-2020 11:41:34 info: 	MongoDB connected succesfully
+23-04-2020 11:42:08 error: 	Error
+23-04-2020 11:42:08 info: 	DATA
+23-04-2020 11:44:42 info: 	Server running on PORT 3001
+23-04-2020 11:44:51 info: 	DATA
+23-04-2020 11:44:52 info: 	MongoDB connected succesfully
+23-04-2020 11:45:02 info: 	DATA
+23-04-2020 11:47:03 info: 	Server running on PORT 3001
+23-04-2020 11:47:05 info: 	MongoDB connected succesfully
+23-04-2020 11:48:36 info: 	Req.headers
+23-04-2020 11:48:36 info: 	In Reset Password
+23-04-2020 11:48:36 info: 	DATA
+23-04-2020 11:49:42 info: 	Server running on PORT 3001
+23-04-2020 11:49:44 info: 	MongoDB connected succesfully
+23-04-2020 11:49:50 info: 	Req.headers
+23-04-2020 11:49:50 info: 	In Reset Password
+23-04-2020 11:49:50 info: 	DATA
+23-04-2020 11:51:37 info: 	cond is 
+23-04-2020 11:51:39 info: 	response 
+23-04-2020 11:51:39 error: 	Error
+23-04-2020 11:51:55 info: 	cond is 
+23-04-2020 11:51:55 info: 	response 
+23-04-2020 11:51:55 error: 	Error
+23-04-2020 11:52:19 info: 	cond is 
+23-04-2020 11:52:21 info: 	response 
+23-04-2020 11:52:21 error: 	Error
+23-04-2020 11:53:04 info: 	cond is 
+23-04-2020 11:53:04 info: 	response 
+23-04-2020 11:53:05 info: 	DATA
+23-04-2020 11:53:35 info: 	cond is 
+23-04-2020 11:53:36 info: 	response 
+23-04-2020 11:53:36 info: 	DATA
+23-04-2020 11:54:00 info: 	cond is 
+23-04-2020 11:54:05 info: 	response 
+23-04-2020 11:54:06 info: 	DATA
+23-04-2020 12:13:59 info: 	Server running on PORT 3001 
+23-04-2020 12:14:02 info: 	MongoDB connected succesfully 
+23-04-2020 12:27:23 info: 	Server running on PORT 3001 
+23-04-2020 12:27:24 info: 	MongoDB connected succesfully 
+23-04-2020 12:27:39 error: 	Error 
+23-04-2020 12:29:23 info: 	Server running on PORT 3001 
+23-04-2020 12:29:25 info: 	MongoDB connected succesfully 
+23-04-2020 12:30:18 error: 	Error 
+23-04-2020 12:31:23 info: 	Server running on PORT 3001 
+23-04-2020 12:31:24 info: 	MongoDB connected succesfully 
+23-04-2020 12:31:46 error: 	Errorinvalid signature 
+23-04-2020 12:35:08 info: 	cond is  
+23-04-2020 12:35:38 error: 	MongooseServerSelectionError: getaddrinfo ENOTFOUND cluster0-shard-00-00-pvipx.mongodb.net 
+23-04-2020 12:35:38 error: 	Errorgetaddrinfo ENOTFOUND cluster0-shard-00-00-pvipx.mongodb.net 
+23-04-2020 12:36:22 info: 	cond is  
+23-04-2020 12:36:52 error: 	MongooseServerSelectionError: getaddrinfo ENOTFOUND cluster0-shard-00-00-pvipx.mongodb.net 
+23-04-2020 12:36:52 error: 	Errorgetaddrinfo ENOTFOUND cluster0-shard-00-00-pvipx.mongodb.net 
+23-04-2020 12:37:19 info: 	cond is  
+23-04-2020 12:37:49 error: 	MongooseServerSelectionError: getaddrinfo ENOTFOUND cluster0-shard-00-00-pvipx.mongodb.net 
+23-04-2020 12:37:49 error: 	Errorgetaddrinfo ENOTFOUND cluster0-shard-00-00-pvipx.mongodb.net 
+23-04-2020 12:40:42 info: 	cond is  
+23-04-2020 12:40:43 info: 	response  
+23-04-2020 12:40:43 info: 	checkExistUser 
+23-04-2020 12:40:43 info: 	req.body is  
+23-04-2020 12:40:43 info: 	data  
+23-04-2020 12:40:43 info: 	{
+  _id: 5ea13f73c3f2dc179880c3f2,
+  name: 'Raghu',
+  phone: 1234567890,
+  email: 'z@a.com',
+  password: '$2b$10$Mssxaw55ayK07AlctWFS.Oz618X.vQjM5GAD/voI9ykuzSdy2XV2i',
+  type: 'Supplier',
+  __v: 0
+} 
+23-04-2020 12:40:43 info: 	In controller  
+23-04-2020 12:40:43 info: 	DATA 
+23-04-2020 12:44:02 error: 	Errorinvalid signature 
+23-04-2020 12:52:27 info: 	Server running on PORT 3001 
+23-04-2020 12:52:45 info: 	Server running on PORT 3001 
+23-04-2020 12:52:46 info: 	MongoDB connected succesfully 
+23-04-2020 12:53:27 error: 	Errorinvalid signature 
+23-04-2020 12:53:40 error: 	Errorinvalid signature 
+23-04-2020 12:54:45 info: 	Server running on PORT 3001 
+23-04-2020 12:54:47 info: 	MongoDB connected succesfully 
+23-04-2020 12:54:58 error: 	Errorinvalid signature 
+23-04-2020 12:59:31 info: 	Server running on PORT 3001 
+23-04-2020 12:59:51 info: 	MongoDB connected succesfully 
+23-04-2020 12:59:55 error: 	Errorinvalid signature 
+23-04-2020 13:04:01 info: 	cond is  
+23-04-2020 13:04:02 info: 	response  
+23-04-2020 13:04:02 info: 	checkExistUser 
+23-04-2020 13:04:02 error: 	Error 
+23-04-2020 13:04:24 info: 	cond is  
+23-04-2020 13:04:24 info: 	response  
+23-04-2020 13:04:24 info: 	checkExistUser 
+23-04-2020 13:04:25 info: 	req.body is  
+23-04-2020 13:04:25 info: 	data  
+23-04-2020 13:04:25 info: 	{
+  _id: 5ea14501bfa4c60be0219c4e,
+  name: 'Raghu',
+  phone: 1234567890,
+  email: 'y@a.com',
+  password: '$2b$10$1tURyChMStFQ3qkXlWF6Eu/Oxgkx49qQlyiUBhlJTh4rNYMk8HYRS',
+  type: 'Supplier',
+  __v: 0
+} 
+23-04-2020 13:04:25 info: 	In controller  
+23-04-2020 13:04:25 info: 	DATA 
+23-04-2020 13:05:35 error: 	Errorinvalid signature 
+23-04-2020 13:19:24 error: 	Errorinvalid signature 
+23-04-2020 13:19:33 info: 	cond is  
+23-04-2020 13:19:34 info: 	response  
+23-04-2020 13:19:34 info: 	checkExistUser 
+23-04-2020 13:19:35 info: 	req.body is  
+23-04-2020 13:19:35 info: 	data  
+23-04-2020 13:19:35 info: 	{
+  _id: 5ea1488fbfa4c60be0219c4f,
+  name: 'Raghu',
+  phone: 1234567890,
+  email: 'x@a.com',
+  password: '$2b$10$Gy070WUMGYrgk1kIFztJtuIQyBKtvopWjB.7.ydRXfHhu5x5fNFmC',
+  type: 'Supplier',
+  __v: 0
+} 
+23-04-2020 13:19:35 info: 	In controller  
+23-04-2020 13:19:35 info: 	DATA 
+23-04-2020 13:27:29 info: 	Server running on PORT 3001 
+23-04-2020 13:27:32 info: 	MongoDB connected succesfully 
+23-04-2020 13:27:52 info: 	Server running on PORT 3001 
+23-04-2020 13:27:54 info: 	MongoDB connected succesfully 
+23-04-2020 13:28:16 info: 	cond is  
+23-04-2020 13:28:17 info: 	response  
+23-04-2020 13:28:18 info: 	checkExistUser 
+23-04-2020 13:28:18 info: 	req.body is  
+23-04-2020 13:28:18 info: 	data  
+23-04-2020 13:28:18 info: 	{
+  _id: 5ea14a9aa8d40f1f6413abdb,
+  name: 'Raghu',
+  phone: 1234567890,
+  email: 'v@a.com',
+  password: '$2b$10$QmBNHCYH7aARTeE2WECyfOlFhFxOpCjv4G26946HJsN2FZPF6vSta',
+  type: 'Supplier',
+  __v: 0
+} 
+23-04-2020 13:28:18 info: 	In controller  
+23-04-2020 13:28:18 info: 	DATA 
+23-04-2020 13:30:54 info: 	Server running on PORT 3001 
+23-04-2020 13:30:57 info: 	MongoDB connected succesfully 
+23-04-2020 13:31:21 info: 	cond is  
+23-04-2020 13:31:22 info: 	response  
+23-04-2020 13:31:22 info: 	checkExistUser 
+23-04-2020 13:31:23 info: 	req.body is  
+23-04-2020 13:31:23 info: 	data  
+23-04-2020 13:31:23 info: 	{
+  _id: 5ea14b5329ea040da01cf6a8,
+  name: 'Raghu',
+  phone: 1234567890,
+  email: 'u@a.com',
+  password: '$2b$10$Hc.KTUQkF4BgJtKeh10qR.xNY08MoPDLfrup.gAcRTdaXw5vE5OGy',
+  type: 'Supplier',
+  __v: 0
+} 
+23-04-2020 13:31:23 info: 	In controller  
+23-04-2020 13:31:23 info: 	DATA 
+23-04-2020 13:36:39 info: 	Server running on PORT 3001 
+23-04-2020 13:36:43 info: 	MongoDB connected succesfully 
+23-04-2020 13:37:05 info: 	Raghu 
+23-04-2020 13:37:05 info: 	In Reset Password 
+23-04-2020 13:37:05 info: 	DATA 
+23-04-2020 14:03:53 info: 	Server running on PORT 3001 
+23-04-2020 14:03:56 info: 	MongoDB connected succesfully 
+23-04-2020 14:04:08 info: 	cond is  
+23-04-2020 14:04:09 info: 	response  
+23-04-2020 14:04:09 info: 	checkExistUser 
+23-04-2020 14:04:09 info: 	req.body is  
+23-04-2020 14:04:09 info: 	data  
+23-04-2020 14:04:10 info: 	{
+  _id: 5ea1530115fbf3203c28a9b6,
+  name: 'Raghu',
+  phone: 1234567890,
+  email: 'w@a.com',
+  password: '$2b$10$2sTGhxQAqKJJzr3iw2JYGOqvTopV4.pjyATWOARRhuTt3gpsr/bg.',
+  type: 'Supplier',
+  __v: 0
+} 
+23-04-2020 14:04:10 info: 	In controller  
+23-04-2020 14:04:10 info: 	DATA 
+23-04-2020 14:05:27 info: 	w@a.com 
+23-04-2020 14:05:27 info: 	In Reset Password 
+23-04-2020 14:05:27 info: 	cond is  
+23-04-2020 14:05:27 info: 	response  
+23-04-2020 14:05:27 info: 	new values are  
+23-04-2020 14:05:27 info: 	foundProduct 
+23-04-2020 14:07:01 info: 	Server running on PORT 3001 
+23-04-2020 14:07:04 info: 	MongoDB connected succesfully 
+23-04-2020 14:07:22 info: 	cond is  
+23-04-2020 14:07:22 info: 	response  
+23-04-2020 14:07:22 info: 	checkExistUser 
+23-04-2020 14:07:23 info: 	req.body is  
+23-04-2020 14:07:23 info: 	data  
+23-04-2020 14:07:23 info: 	{
+  _id: 5ea153c3a47d9b277c76d1a6,
+  name: 'Raghu',
+  phone: 1234567890,
+  email: 't@a.com',
+  password: '$2b$10$V7R4/5TbpMzoIfotpaWRxOUY/yJWomQ1GYJZZu8ZwQ9i4iXArNn9K',
+  type: 'Supplier',
+  __v: 0
+} 
+23-04-2020 14:07:23 info: 	In controller  
+23-04-2020 14:07:23 info: 	DATA 
+23-04-2020 14:08:15 info: 	cond is  
+23-04-2020 14:08:15 info: 	response  
+23-04-2020 14:08:15 info: 	checkExistUser 
+23-04-2020 14:08:16 info: 	req.body is  
+23-04-2020 14:08:16 info: 	data  
+23-04-2020 14:08:16 error: 	ValidationError: type: Path `type` is required., email: Path `email` is required., phone: Path `phone` is required., name: Path `name` is required. 
+23-04-2020 14:08:16 error: 	Erroruser validation failed: type: Path `type` is required., email: Path `email` is required., phone: Path `phone` is required., name: Path `name` is required. 
+23-04-2020 14:08:30 info: 	t@a.com 
+23-04-2020 14:08:30 info: 	In Reset Password 
+23-04-2020 14:08:30 info: 	cond is  
+23-04-2020 14:08:30 info: 	response  
+23-04-2020 14:08:30 info: 	Error while comparing salt data and hash arguments required 
+23-04-2020 14:08:30 error: 	Errordata and hash arguments required 
+23-04-2020 14:09:18 info: 	t@a.com 
+23-04-2020 14:09:18 info: 	In Reset Password 
+23-04-2020 14:09:18 info: 	cond is  
+23-04-2020 14:09:18 info: 	response  
+23-04-2020 14:09:18 info: 	Error while comparing salt data and hash arguments required 
+23-04-2020 14:09:18 error: 	Errordata and hash arguments required 
+23-04-2020 14:09:27 info: 	t@a.com 
+23-04-2020 14:09:27 info: 	In Reset Password 
+23-04-2020 14:09:27 info: 	cond is  
+23-04-2020 14:09:27 info: 	response  
+23-04-2020 14:09:27 info: 	new values are  
+23-04-2020 14:09:27 info: 	foundProduct 
+23-04-2020 14:09:27 info: 	DATA 
+23-04-2020 20:29:11 info: 	Server running on PORT 3001 
+23-04-2020 20:29:25 info: 	MongoDB connected succesfully 
+23-04-2020 20:31:48 info: 	Hello / 

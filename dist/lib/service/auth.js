@@ -11,8 +11,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    result["default"] = mod;
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const jwt = __importStar(require("jsonwebtoken"));
 const logger_1 = require("../logger");
 class AuthService {
     constructor() {
@@ -40,6 +48,11 @@ class AuthService {
                 logger_1.logger.info("Error while comparing salt ", err);
                 throw err;
             }
+        });
+    }
+    decodedToken(token) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return jwt.decode(token);
         });
     }
 }

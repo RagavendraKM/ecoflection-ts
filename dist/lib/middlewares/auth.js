@@ -19,14 +19,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const jwt = __importStar(require("jsonwebtoken"));
 const auth = __importStar(require("../config/auth"));
 const responseController_1 = require("../controllers/responseController");
+const logger_1 = require("../logger");
 class AuthMiddleware {
     constructor() {
     }
     createAuthToken(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { _id } = req.body;
-                let payload = { subject: _id };
+                const { email } = req.body;
+                let payload = { subject: email };
                 let token = jwt.sign(payload, auth.jwt_secret, {
                     expiresIn: auth.jwt_expiration
                 });
@@ -35,6 +36,36 @@ class AuthMiddleware {
             }
             catch (err) {
                 responseController_1.errorFunction(res, err, "Error while creating auth token");
+            }
+        });
+    }
+    verifyToken(req, res, next) {
+        var _a;
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                console.log("Req.headers", req.header);
+                if (!req.headers.authorization) {
+                    responseController_1.errorFunction(res, "ERR 401", "Unauthorized Request");
+                }
+                let token = (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(' ')[1];
+                // const header = req.headers['authorization']?.split(' ')[1]
+                console.log(token);
+                if (token === null) {
+                    responseController_1.errorFunction(res, "ERR 401", "Unauthorized Request");
+                }
+                // var secret = new Buffer(auth.jwt_secret, 'base64').toString();
+                // console.log("secret", secret);
+                let payload = jwt.verify(token, auth.jwt_secret);
+                console.log("Payload", payload);
+                if (payload === null) {
+                    responseController_1.errorFunction(res, "ERR 401", "Unauthorized Request");
+                }
+                req.body.userId = payload.subject;
+                logger_1.logger.info(req.body.userId);
+                next();
+            }
+            catch (err) {
+                responseController_1.errorFunction(res, err, "Some error in middleware");
             }
         });
     }

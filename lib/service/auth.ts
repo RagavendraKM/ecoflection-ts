@@ -1,4 +1,5 @@
 import bcrypt from "bcrypt"
+import * as jwt from "jsonwebtoken";
 import { logger } from "../logger";
 
 export class AuthService {
@@ -25,6 +26,10 @@ export class AuthService {
             logger.info("Error while comparing salt ", err);
             throw err;
         }
+    }
+
+    async decodedToken(token: string) {
+        return jwt.decode(token);
     }
 
 }

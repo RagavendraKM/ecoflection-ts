@@ -20,6 +20,9 @@ class AuthRoute {
     authApi() {
         this.router.post('/register', middlewares_1.jwtMiddleware.createAuthToken, controller.register);
         this.router.post('/login', middlewares_1.jwtMiddleware.createAuthToken, controller.login);
+        this.router.post('/resetPassword', middlewares_1.jwtMiddleware.verifyToken, controller.resetPassword);
+        this.router.get('/auth/google/callback', controller.googleLogin);
+        this.router.get('/auth/google/', controller.googleRedirect);
         return this.router;
     }
 }

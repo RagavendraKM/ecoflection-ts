@@ -1,0 +1,26 @@
+23-04-2020 11:35:56 error: 	Error
+23-04-2020 11:42:08 error: 	Error
+23-04-2020 11:51:39 error: 	Error
+23-04-2020 11:51:55 error: 	Error
+23-04-2020 11:52:21 error: 	Error
+23-04-2020 12:27:39 error: 	Error 
+23-04-2020 12:30:18 error: 	Error 
+23-04-2020 12:31:46 error: 	Errorinvalid signature 
+23-04-2020 12:35:38 error: 	MongooseServerSelectionError: getaddrinfo ENOTFOUND cluster0-shard-00-00-pvipx.mongodb.net 
+23-04-2020 12:35:38 error: 	Errorgetaddrinfo ENOTFOUND cluster0-shard-00-00-pvipx.mongodb.net 
+23-04-2020 12:36:52 error: 	MongooseServerSelectionError: getaddrinfo ENOTFOUND cluster0-shard-00-00-pvipx.mongodb.net 
+23-04-2020 12:36:52 error: 	Errorgetaddrinfo ENOTFOUND cluster0-shard-00-00-pvipx.mongodb.net 
+23-04-2020 12:37:49 error: 	MongooseServerSelectionError: getaddrinfo ENOTFOUND cluster0-shard-00-00-pvipx.mongodb.net 
+23-04-2020 12:37:49 error: 	Errorgetaddrinfo ENOTFOUND cluster0-shard-00-00-pvipx.mongodb.net 
+23-04-2020 12:44:02 error: 	Errorinvalid signature 
+23-04-2020 12:53:27 error: 	Errorinvalid signature 
+23-04-2020 12:53:40 error: 	Errorinvalid signature 
+23-04-2020 12:54:58 error: 	Errorinvalid signature 
+23-04-2020 12:59:55 error: 	Errorinvalid signature 
+23-04-2020 13:04:02 error: 	Error 
+23-04-2020 13:05:35 error: 	Errorinvalid signature 
+23-04-2020 13:19:24 error: 	Errorinvalid signature 
+23-04-2020 14:08:16 error: 	ValidationError: type: Path `type` is required., email: Path `email` is required., phone: Path `phone` is required., name: Path `name` is required. 
+23-04-2020 14:08:16 error: 	Erroruser validation failed: type: Path `type` is required., email: Path `email` is required., phone: Path `phone` is required., name: Path `name` is required. 
+23-04-2020 14:08:30 error: 	Errordata and hash arguments required 
+23-04-2020 14:09:18 error: 	Errordata and hash arguments required 
