@@ -68,32 +68,35 @@ export async function gotoCheckout(req: Request, res: Response) {
         // logger.info(product);
         let _url = "https://api.razorpay.com/v1/checkout/embedded";
         let response = await axios.default.post(_url, {
-                key_id: "rzp_test_hkbB5C9e19CA7W",
-                name: "Ecoflection",
-                description: "Checkout the first order",
-                order_id: "order_EkejyVxlf34n7M",
-                amount: 5000,
-                currency: "INR",
+            key_id: "rzp_test_hkbB5C9e19CA7W",
+            name: "Ecoflection",
+            description: "Checkout the first order",
+            order_id: "order_EkejyVxlf34n7M",
+            amount: 5000,
+            currency: "INR",
+            prefill: {
+                name: "Raghu",
                 email: "raghurkm7@gmail.com",
                 contact: 8722550718,
+            },
                 callback_url: "https://ecoflection-api.herokuapp.com/product/checkout/callback",
-                cancel_url: "https://ecoflection-api.herokuapp.com/product"
-            })
-            // console.log(response.data);
-            res.set("Content-Type", "text/html");
-            res.send(response.data);
-    } catch(err) {
+            cancel_url: "https://ecoflection-api.herokuapp.com/product"
+        })
+        // console.log(response.data);
+        res.set("Content-Type", "text/html");
+        res.send(response.data);
+    } catch (err) {
         logger.error(err);
         throw err
     }
 }
 
-export async function checkoutCallback(req: Request,res: Response) {
-    try{
+export async function checkoutCallback(req: Request, res: Response) {
+    try {
         logger.info(req.body);
         console.log(req.body);
         res.send(req.body);
-    } catch(err) {
+    } catch (err) {
         logger.error(err);
         throw err
     }
