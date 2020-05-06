@@ -3,6 +3,8 @@ import { User } from '../models';
 import { errorFunction, successFunction } from './responseController';
 import { authService } from '../service';
 
+import { create } from '../payments/customers';
+
 import { Functions } from "../utils/database";
 import { logger } from '../logger';
 import { jwtMiddleware } from '../middlewares';
@@ -10,17 +12,19 @@ const UserModel = new Functions(User);
 
 export async function register(req: Request, res: Response) {
     try {
-        const userBody = req.body;
-        let existsUser: Array<any> = await UserModel.find({ email: userBody.email });
+        let { name, phone, email, type, password } = req.body;
+        let existsUser: Array<any> = await UserModel.find({ email: email });
         logger.info("checkExistUser", existsUser);
         if (existsUser.length) {
             errorFunction(res, "User already Exists", "User Exists");
         } else {
-            let hashedPwd = await authService.encryptPassword(userBody.password);
-            userBody.password = hashedPwd;
-            let newUser: any = await UserModel.insert(userBody);
+            let hashedPwd = await authService.encryptPassword(password);
+            password = hashedPwd;
+            let newUser: any = await UserModel.insert(req.body);
             logger.info("In controller ", newUser);
             let token: any = req.body.token;
+            let payUser: any = await create(name, email, phone);
+            console.log("payUser", payUser);
             successFunction(res, { newUser, token }, "New User is ");
         }
     } catch (err) {
@@ -59,7 +63,7 @@ export async function resetPassword(req: Request, res: Response) {
             let isMatch = await authService.comparePassword(currentPwd, pwd);
             if (isMatch) {
                 let password = await authService.encryptPassword(newPwd);
-                if(confirmPwd !== newPwd) {
+                if (confirmPwd !== newPwd) {
                     errorFunction(res, "Password doesn't match", "Please check again");
                 }
                 let changedUser = await UserModel.update({ email: userId }, {
@@ -71,7 +75,7 @@ export async function resetPassword(req: Request, res: Response) {
                 successFunction(res, changedUser, "Password Reset Done");
             }
         }
-    } catch(err) {
+    } catch (err) {
         errorFunction(res, err, "Some DB error while resetting password");
     }
 }

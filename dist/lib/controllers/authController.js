@@ -12,24 +12,27 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const models_1 = require("../models");
 const responseController_1 = require("./responseController");
 const service_1 = require("../service");
+const customers_1 = require("../payments/customers");
 const database_1 = require("../utils/database");
 const logger_1 = require("../logger");
 const UserModel = new database_1.Functions(models_1.User);
 function register(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const userBody = req.body;
-            let existsUser = yield UserModel.find({ email: userBody.email });
+            let { name, phone, email, type, password } = req.body;
+            let existsUser = yield UserModel.find({ email: email });
             logger_1.logger.info("checkExistUser", existsUser);
             if (existsUser.length) {
                 responseController_1.errorFunction(res, "User already Exists", "User Exists");
             }
             else {
-                let hashedPwd = yield service_1.authService.encryptPassword(userBody.password);
-                userBody.password = hashedPwd;
-                let newUser = yield UserModel.insert(userBody);
+                let hashedPwd = yield service_1.authService.encryptPassword(password);
+                password = hashedPwd;
+                let newUser = yield UserModel.insert(req.body);
                 logger_1.logger.info("In controller ", newUser);
                 let token = req.body.token;
+                let payUser = yield customers_1.create(name, email, phone);
+                console.log("payUser", payUser);
                 responseController_1.successFunction(res, { newUser, token }, "New User is ");
             }
         }

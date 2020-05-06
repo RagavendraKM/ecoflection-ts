@@ -12,13 +12,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const googleapis_1 = require("googleapis");
 const oauth2_keys_1 = require("../../config/oauth2.keys");
 const responseController_1 = require("../responseController");
-// export class AuthGoogleLogin {
 const client_id = oauth2_keys_1.web.client_id;
 const client_secret = oauth2_keys_1.web.client_secret;
 const redirect_uris = oauth2_keys_1.web.redirect_uris;
 const oAuth2Client = new googleapis_1.google.auth.OAuth2(client_id, client_secret, redirect_uris);
-// constructor() {
-// }
 function getAuthUrl(oAuth2Client) {
     const authUrl = oAuth2Client.generateAuthUrl({
         access_type: 'offline',
@@ -29,7 +26,7 @@ function getAuthUrl(oAuth2Client) {
     console.log('Authorize this app by visiting this url:', authUrl);
     return authUrl;
 }
-function listConnectionNames(auth) {
+function getUserData(auth) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const service = googleapis_1.google.people({ version: 'v1', auth });
@@ -64,7 +61,7 @@ function googleLogin(req, res) {
             const token = yield oAuth2Client.getToken(code);
             console.log("token", token.tokens);
             oAuth2Client.setCredentials(token.tokens);
-            const data = yield listConnectionNames(oAuth2Client);
+            const data = yield getUserData(oAuth2Client);
             console.log("data", data);
             responseController_1.successFunction(res, data, "Data here");
         }

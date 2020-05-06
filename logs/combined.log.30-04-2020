@@ -1,0 +1,97 @@
+30-04-2020 13:51:42 info: 	Server running on PORT 3001 
+30-04-2020 13:51:47 info: 	MongoDB connected succesfully 
+30-04-2020 13:54:57 info: 	cond is  
+30-04-2020 13:54:58 info: 	response  
+30-04-2020 13:54:58 info: 	checkExistUser 
+30-04-2020 13:54:59 info: 	req.body is  
+30-04-2020 13:54:59 info: 	data  
+30-04-2020 13:55:00 info: 	{
+  _id: 5eaa8b5b4fb76b1f246a3948,
+  name: 'Raghu',
+  phone: 3456,
+  email: 's@s.com',
+  type: 'Customer',
+  password: '$2b$10$xNRwmoFahLFRpTmYReyfA.BVfYhqi/ReeK6uiL/b4DFTMHfi4lSUy',
+  __v: 0
+} 
+30-04-2020 13:55:00 info: 	In controller  
+30-04-2020 13:55:01 info: 	DATA 
+30-04-2020 14:01:36 info: 	Server running on PORT 3001 
+30-04-2020 14:01:38 info: 	MongoDB connected succesfully 
+30-04-2020 14:01:56 info: 	cond is  
+30-04-2020 14:01:57 info: 	response  
+30-04-2020 14:01:57 info: 	checkExistUser 
+30-04-2020 14:01:57 info: 	req.body is  
+30-04-2020 14:01:57 info: 	data  
+30-04-2020 14:01:57 info: 	{
+  _id: 5eaa8cfdf8876a15b4aa07f3,
+  name: 'Raghu',
+  phone: 3456,
+  email: 's@t.com',
+  type: 'Customer',
+  password: 'aaaaaa',
+  __v: 0
+} 
+30-04-2020 14:01:57 info: 	In controller  
+30-04-2020 14:01:58 error: 	Error 
+30-04-2020 14:02:16 info: 	cond is  
+30-04-2020 14:02:17 info: 	response  
+30-04-2020 14:02:17 info: 	checkExistUser 
+30-04-2020 14:02:17 error: 	Error 
+30-04-2020 14:02:31 info: 	cond is  
+30-04-2020 14:02:32 info: 	response  
+30-04-2020 14:02:32 info: 	checkExistUser 
+30-04-2020 14:02:32 info: 	req.body is  
+30-04-2020 14:02:32 info: 	data  
+30-04-2020 14:02:32 info: 	{
+  _id: 5eaa8d20f8876a15b4aa07f4,
+  name: 'Raghu',
+  phone: 3454567996,
+  email: 's@r.com',
+  type: 'Customer',
+  password: 'aaaaaa',
+  __v: 0
+} 
+30-04-2020 14:02:32 info: 	In controller  
+30-04-2020 14:02:33 info: 	DATA 
+30-04-2020 19:27:02 info: 	Server running on PORT 3001 
+30-04-2020 19:27:06 info: 	MongoDB connected succesfully 
+30-04-2020 19:28:28 info: 	Server running on PORT 3001 
+30-04-2020 19:28:48 info: 	MongoDB connected succesfully 
+30-04-2020 19:29:33 info: 	[object Object] 
+30-04-2020 19:31:08 info: 	Server running on PORT 3001 
+30-04-2020 19:31:25 info: 	MongoDB connected succesfully 
+30-04-2020 19:35:47 info: 	Server running on PORT 3001 
+30-04-2020 19:36:07 info: 	MongoDB connected succesfully 
+30-04-2020 19:36:20 error: 	TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received an instance of Object 
+30-04-2020 19:41:35 info: 	Server running on PORT 3001 
+30-04-2020 19:42:06 info: 	MongoDB connected succesfully 
+30-04-2020 19:43:41 error: 	Error: No default engine was specified and no extension was provided. 
+30-04-2020 19:45:39 error: 	Error: No default engine was specified and no extension was provided. 
+30-04-2020 19:47:48 info: 	Server running on PORT 3001 
+30-04-2020 19:48:20 info: 	MongoDB connected succesfully 
+30-04-2020 19:48:35 error: 	Error: No default engine was specified and no extension was provided. 
+30-04-2020 19:48:36 error: 	Error: No default engine was specified and no extension was provided. 
+30-04-2020 19:50:59 error: 	Error: No default engine was specified and no extension was provided. 
+30-04-2020 19:56:12 info: 	Server running on PORT 3001 
+30-04-2020 19:57:17 error: 	MongooseServerSelectionError: connection <monitor> to 13.234.255.239:27017 timed out 
+30-04-2020 19:58:33 info: 	Hello / 
+30-04-2020 19:59:32 info: 	Hello / 
+30-04-2020 20:04:55 info: 	Server running on PORT 3001 
+30-04-2020 20:05:39 info: 	MongoDB connected succesfully 
+30-04-2020 20:05:58 info: 	Hello / 
+30-04-2020 20:10:52 info: 	Hello / 
+30-04-2020 20:18:42 info: 	Hello / 
+30-04-2020 20:18:43 info: 	Hello / 
+30-04-2020 20:19:41 info: 	Server running on PORT 3001 
+30-04-2020 20:19:46 info: 	MongoDB connected succesfully 
+30-04-2020 20:20:33 info: 	Hello / 
+30-04-2020 20:20:33 info: 	Hello / 
+30-04-2020 20:20:38 info: 	Hello / 
+30-04-2020 20:20:38 info: 	Hello / 
+30-04-2020 20:20:41 info: 	Hello / 
+30-04-2020 20:20:41 info: 	Hello / 
+30-04-2020 20:20:52 info: 	Hello / 
+30-04-2020 20:20:52 info: 	Hello / 
+30-04-2020 20:22:13 info: 	Server running on PORT 3001 
+30-04-2020 20:22:14 info: 	MongoDB connected succesfully 

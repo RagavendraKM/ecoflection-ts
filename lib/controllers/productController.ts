@@ -3,6 +3,7 @@ import { Product, Categories } from '../models';
 import { Functions } from "../utils/database";
 import { successFunction, errorFunction } from './responseController';
 import { logger } from '../logger';
+import * as axios from 'axios';
 // import { socket } from '../socket';
 
 const ProductModel = new Functions(Product);
@@ -58,5 +59,40 @@ async function updateQuantity(body: any) {
     } catch (err) {
         logger.info("In controller err ", err);
         throw err;
+    }
+}
+
+export async function gotoCheckout(req: Request, res: Response) {
+    try {
+        // let product = await ProductModel.find({_id: req.params.id});
+        // logger.info(product);
+        let _url = "https://api.razorpay.com/v1/checkout/embedded";
+        let response = await axios.default.post(_url, {
+                key_id: "rzp_test_hkbB5C9e19CA7W",
+                name: "Ecoflection",
+                description: "Checkout the first order",
+                order_id: "order_EkejyVxlf34n7M",
+                amount: 5000,
+                currency: "INR",
+                callback_url: "https://ecoflection.herokuapp.com/getProducts",
+                cancel_url: "https://ecoflection.herokuapp.com/"
+            })
+            // console.log(response.data);
+            res.set("Content-Type", "text/html");
+            res.send(response.data);
+    } catch(err) {
+        logger.error(err);
+        throw err
+    }
+}
+
+export async function checkoutCallback(req: Request,res: Response) {
+    try{
+        logger.info(req.body);
+        console.log(req.body);
+        res.send(req.body);
+    } catch(err) {
+        logger.error(err);
+        throw err
     }
 }

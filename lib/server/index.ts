@@ -51,7 +51,7 @@ export class ExpressApp {
     this.app.use('/user', authRoute.authApi());
     this.app.use('/product', productRoute.productApi());
     this.app.use('/category', categoryRoute.categoryApi());
-    this.app.use('/', (req: Request, res: Response) => {
+    this.app.use('/home', (req: Request, res: Response) => {
       logger.info("Hello /");
       res.send("Hello /");
     });

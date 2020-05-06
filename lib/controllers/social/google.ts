@@ -22,7 +22,7 @@ function getAuthUrl(oAuth2Client: OAuth2Client) {
     return authUrl;
 }
 
-async function listConnectionNames(auth: OAuth2Client) {
+async function getUserData(auth: OAuth2Client) {
     try {
         const service = google.people({ version: 'v1', auth });
         const result: any = await service.people.get({
@@ -53,7 +53,7 @@ export async function googleLogin(req: Request, res: Response) {
         const token: any = await oAuth2Client.getToken(code);
         console.log("token", token.tokens);
         oAuth2Client.setCredentials(token.tokens);
-        const data = await listConnectionNames(oAuth2Client);
+        const data = await getUserData(oAuth2Client);
         console.log("data", data);
         successFunction(res, data, "Data here");
     } catch (err) {

@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     phone: { type: Number, required: true },
     email: { type: String, required: true },
     type: { type: String, required: true },
-    password: { type: String }
+    password: { type: String },
 });
 exports.User = mongoose.model('user', userSchema);
 //# sourceMappingURL=user.js.map
