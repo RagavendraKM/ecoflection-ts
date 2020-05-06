@@ -92,7 +92,7 @@ async function updateQuantity(body: any) {
 
 export async function gotoCheckout(req: Request, res: Response) {
     console.log("index.html");
-    res.sendfile(__dirname + '/index.html');
+    res.sendfile(__dirname + '/html/index.html');
 }
 
 export async function checkoutCallback(req: Request, res: Response) {
