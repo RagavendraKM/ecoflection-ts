@@ -8,7 +8,7 @@
         "outDir": "dist",
         "noImplicitAny": true,
         "strictNullChecks": true,
-        "watch": true
+        "watch": false
     },
     "include": [
         "**/*"
