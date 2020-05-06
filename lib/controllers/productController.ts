@@ -74,8 +74,8 @@ export async function gotoCheckout(req: Request, res: Response) {
                 order_id: "order_EkejyVxlf34n7M",
                 amount: 5000,
                 currency: "INR",
-                callback_url: "https://ecoflection.herokuapp.com/getProducts",
-                cancel_url: "https://ecoflection.herokuapp.com/"
+                callback_url: "https://ecoflection-api.herokuapp.com/product/checkout/callback",
+                cancel_url: "https://ecoflection-api.herokuapp.com/product"
             })
             // console.log(response.data);
             res.set("Content-Type", "text/html");
