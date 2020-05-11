@@ -118,19 +118,19 @@ export async function checkoutCallback(req: Request, res: Response) {
         let body = req.body
         let bodyJSON = JSON.stringify(body);
         let reqBody = req.body.razorpay_order_id + "|" + req.body.razorpay_payment_id;
-        var expectedSignature = crypto.createHmac('sha256', '123456').update((req.body).toString()).digest('hex');
-        var expectedSignatureJSON = crypto.createHmac('sha256', '123456').update(bodyJSON).digest('hex');
-        var expectedSignatureReqBody = crypto.createHmac('sha256', '123456').update(reqBody).digest('hex');
+        var expectedSignature = crypto.createHmac('sha256', keys.secret_id).update((req.body).toString()).digest('hex');
+        var expectedSignatureJSON = crypto.createHmac('sha256', keys.secret_id).update(bodyJSON).digest('hex');
+        var expectedSignatureReqBody = crypto.createHmac('sha256', keys.secret_id).update(reqBody).digest('hex');
         logger.info(expectedSignature);
         logger.info(expectedSignatureReqBody);
         console.log("expectedSignatureJSON ", expectedSignatureJSON);
         logger.info(JSON.stringify(signature));
         let generatedSignature = await razorpay.validateWebhookSignature((req.body).toString(), signature, 'secret');
-        let generatedSignatureJSON = await razorpay.validateWebhookSignature(bodyJSON, signature, '123456');
-        console.log("generatedSignature",generatedSignature);
+        let generatedSignatureJSON = await razorpay.validateWebhookSignature(bodyJSON, signature, keys.secret_id);
+        console.log("generatedSignature", generatedSignature);
         console.log("generatedSignatureJSON", generatedSignatureJSON);
         logger.info(JSON.stringify(generatedSignature))
-        res.json({data:req.body, sig:generatedSignature, sig1: signature});
+        res.json({ data: req.body, sig: generatedSignature, sig1: signature });
     } catch (err) {
         logger.error(err);
         throw err
