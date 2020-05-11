@@ -7,6 +7,7 @@ import * as axios from 'axios';
 import { keys } from '../config/razorpay';
 import { createOrder } from '../payments/orders';
 import { instance, razorpay } from '../payments';
+import * as crypto from 'crypto';
 // import { socket } from '../socket';
 
 const ProductModel = new Functions(Product);
@@ -108,11 +109,10 @@ export async function gotoCheckout(req: Request, res: Response) {
 
 export async function checkoutCallback(req: Request, res: Response) {
     try {
-        var crypto = require('crypto');
         // console.log("In callback ",req.body);
         logger.info(JSON.stringify(req.body));
         let signature = req.body.razorpay_signature //req.headers["x-razorpay-signature"];
-        logger.info(JSON.stringify(req.headers));
+        logger.info(JSON.stringify(req));
         var expectedSignature = crypto.createHmac('sha256', "secret").update(req.body).digest('hex');
         logger.info(expectedSignature);
         console.log("signature ", signature);
