@@ -110,7 +110,7 @@ export async function checkoutCallback(req: Request, res: Response) {
     try {
         // console.log("In callback ",req.body);
         logger.info(JSON.stringify(req.body));
-        let signature = req.headers["x-razorpay-signature"];
+        let signature = req.body.razorpay_signature //req.headers["x-razorpay-signature"];
         console.log("signature ", signature);
         logger.info(JSON.stringify(signature));
         let generatedSignature = await razorpay.validateWebhookSignature(req.body, signature, 'secret');
