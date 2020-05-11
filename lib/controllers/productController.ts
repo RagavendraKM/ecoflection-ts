@@ -113,7 +113,7 @@ export async function checkoutCallback(req: Request, res: Response) {
         logger.info(JSON.stringify(req.body));
         let signature = req.body.razorpay_signature //req.headers["x-razorpay-signature"];
         // logger.info(JSON.stringify(req));
-        var expectedSignature = crypto.createHmac('sha256', "secret").update(req.body).digest('hex');
+        var expectedSignature = crypto.createHmac('sha256', "secret").update((req.body).toString()).digest('hex');
         logger.info(expectedSignature);
         console.log("signature ", signature);
         logger.info(JSON.stringify(signature));
