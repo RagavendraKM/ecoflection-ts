@@ -6,7 +6,7 @@ import { logger } from '../logger';
 import * as axios from 'axios';
 import { keys } from '../config/razorpay';
 import { createOrder } from '../payments/orders';
-import { instance } from '../payments';
+import { instance, razorpay } from '../payments';
 // import { socket } from '../socket';
 
 const ProductModel = new Functions(Product);
@@ -113,7 +113,7 @@ export async function checkoutCallback(req: Request, res: Response) {
         let signature = req.headers["x-razorpay-signature"];
         console.log("signature ", signature);
         logger.info(JSON.stringify(signature));
-        let generatedSignature = await instance.validateWebhookSignature(req.body, signature, 'secret');
+        let generatedSignature = await razorpay.validateWebhookSignature(req.body, signature, 'secret');
         console.log("generatedSignature",generatedSignature);
         logger.info(JSON.stringify(generatedSignature))
         res.json({data:req.body, sig:generatedSignature, sig1: signature});

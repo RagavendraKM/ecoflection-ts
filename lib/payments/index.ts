@@ -1,4 +1,4 @@
-const razorpay = require('razorpay');
+export const razorpay = require('razorpay');
 import { keys } from '../config/razorpay';
 
 export const instance = new razorpay({
