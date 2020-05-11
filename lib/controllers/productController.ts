@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { Product, Categories } from '../models';
-import { Functions } from "../utils/database";
+import { Product, Categories, SuccessPayment } from '../models';
+import { Functions, isDefined } from "../utils";
 import { successFunction, errorFunction } from './responseController';
 import { logger } from '../logger';
 import * as axios from 'axios';
@@ -12,6 +12,7 @@ import * as crypto from 'crypto';
 
 const ProductModel = new Functions(Product);
 const CategoriesModel = new Functions(Categories);
+const SuccessPaymentModel = new Functions(SuccessPayment);
 
 export async function getProducts(req: Request, res: Response) {
     try {
@@ -62,7 +63,7 @@ async function updateQuantity(body: any) {
         return updatedProduct;
     } catch (err) {
         logger.info("In controller err ", err);
-        throw err;
+        return err;
     }
 }
 
@@ -98,7 +99,7 @@ export async function gotoCheckout(req: Request, res: Response) {
         res.send(response.data);
     } catch (err) {
         logger.error(err);
-        throw err;
+        errorFunction(res, err, "Checkout Failed");
     }
 }
 
@@ -109,30 +110,21 @@ export async function gotoCheckout(req: Request, res: Response) {
 
 export async function checkoutCallback(req: Request, res: Response) {
     try {
-        // console.log("In callback ",req.body);
         logger.info(JSON.stringify(req.body));
+        if (req.body.error) throw req.body.error;
+        req.body.userid = "Raghu";
         let signature = req.body.razorpay_signature //req.headers["x-razorpay-signature"];
-        const recieved = req.get('x-razorpay-signature');
-        console.log(JSON.stringify(req.header))
-        console.log("recieved", recieved);
-        let body = req.body
-        let bodyJSON = JSON.stringify(body);
         let reqBody = req.body.razorpay_order_id + "|" + req.body.razorpay_payment_id;
-        var expectedSignature = crypto.createHmac('sha256', keys.secret_id).update((req.body).toString()).digest('hex');
-        var expectedSignatureJSON = crypto.createHmac('sha256', keys.secret_id).update(bodyJSON).digest('hex');
-        var expectedSignatureReqBody = crypto.createHmac('sha256', keys.secret_id).update(reqBody).digest('hex');
-        logger.info(expectedSignature);
-        logger.info(expectedSignatureReqBody);
-        console.log("expectedSignatureJSON ", expectedSignatureJSON);
-        logger.info(JSON.stringify(signature));
-        let generatedSignature = await razorpay.validateWebhookSignature((req.body).toString(), signature, 'secret');
-        let generatedSignatureJSON = await razorpay.validateWebhookSignature(bodyJSON, signature, keys.secret_id);
-        console.log("generatedSignature", generatedSignature);
-        console.log("generatedSignatureJSON", generatedSignatureJSON);
-        logger.info(JSON.stringify(generatedSignature))
-        res.json({ data: req.body, sig: generatedSignature, sig1: signature });
+        let generatedSignature = await razorpay.validateWebhookSignature(reqBody, signature, keys.secret_id);
+        logger.info(JSON.stringify(generatedSignature));
+        if (!generatedSignature) throw "Signature Invalid";
+        else {
+            let newPayment: any = await SuccessPaymentModel.insert(req.body);
+            logger.info(newPayment);
+            successFunction(res, newPayment, "Payment Success");
+        }
     } catch (err) {
         logger.error(err);
-        throw err
+        errorFunction(res, err, "Payment Failed");
     }
 }

@@ -14,7 +14,7 @@ export async function createOrder(amount: string, currency: string, receipt: str
         return order;
     } catch (err) {
         logger.error(err);
-        throw err;
+        return err;
     }
 }
 
