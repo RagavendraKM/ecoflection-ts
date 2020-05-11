@@ -112,13 +112,19 @@ export async function checkoutCallback(req: Request, res: Response) {
         // console.log("In callback ",req.body);
         logger.info(JSON.stringify(req.body));
         let signature = req.body.razorpay_signature //req.headers["x-razorpay-signature"];
-        // logger.info(JSON.stringify(req));
+        const recieved = req.get('x-razorpay-signature');
+        console.log("recieved", recieved);
+        let body = req.body
+        let bodyJSON = JSON.stringify(body);
         var expectedSignature = crypto.createHmac('sha256', 'secret').update((req.body).toString()).digest('hex');
+        var expectedSignatureJSON = crypto.createHmac('sha256', 'secret').update(bodyJSON).digest('hex');
         logger.info(expectedSignature);
-        console.log("signature ", signature);
+        console.log("expectedSignatureJSON ", expectedSignatureJSON);
         logger.info(JSON.stringify(signature));
         let generatedSignature = await razorpay.validateWebhookSignature((req.body).toString(), signature, 'secret');
+        let generatedSignatureJSON = await razorpay.validateWebhookSignature(bodyJSON, signature, 'secret');
         console.log("generatedSignature",generatedSignature);
+        console.log("generatedSignatureJSON", generatedSignatureJSON);
         logger.info(JSON.stringify(generatedSignature))
         res.json({data:req.body, sig:generatedSignature, sig1: signature});
     } catch (err) {
