@@ -1,6 +1,7 @@
 import express, { Express, Request, Response, NextFunction } from 'express';
 import * as bodyParser from "body-parser";
 import * as http from "http";
+import * as path from 'path';
 import compression from "compression";
 import { socketInstance } from '../socket';
 import { logger } from '../logger';
@@ -24,6 +25,7 @@ export class ExpressApp {
 
   setupExpress() {
     this.app = express();
+    this.app.use(express.static(path.join(__dirname + '../')));
   }
 
   private _init(): void {

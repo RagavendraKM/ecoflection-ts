@@ -1,5 +1,6 @@
-import express, {Router} from 'express';
+import express, { Router } from 'express';
 import * as controllers from '../controllers';
+import { jwtMiddleware } from '../middlewares';
 
 export class ProductRoute {
     private router: Router = express.Router();

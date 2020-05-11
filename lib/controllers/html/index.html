@@ -8,7 +8,7 @@
         "name": "Acme Corp",
         "description": "Test Transaction",
         "image": "https://example.com/your_logo",
-        "order_id": "order_EkejyVxlf34n7M",
+        "order_id": "order_En3T27l2SpOReE",//order_EkejyVxlf34n7M",
         "handler": function (response) {
             alert(response.razorpay_payment_id);
             alert(response.razorpay_order_id);
@@ -31,6 +31,7 @@
 
     var rzp1 = new Razorpay(options);
     document.getElementById('rzp-button1').onclick = function (e) {
-        rzp1.open(); e.preventDefault();
+        rzp1.open(); 
+        e.preventDefault();
     }
 </script>

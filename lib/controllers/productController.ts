@@ -4,6 +4,9 @@ import { Functions } from "../utils/database";
 import { successFunction, errorFunction } from './responseController';
 import { logger } from '../logger';
 import * as axios from 'axios';
+import { keys } from '../config/razorpay';
+import { createOrder } from '../payments/orders';
+import { instance } from '../payments';
 // import { socket } from '../socket';
 
 const ProductModel = new Functions(Product);
@@ -62,44 +65,58 @@ async function updateQuantity(body: any) {
     }
 }
 
-// export async function gotoCheckout(req: Request, res: Response) {
-//     try {
-//         // let product = await ProductModel.find({_id: req.params.id});
-//         // logger.info(product);
-//         let _url = "https://api.razorpay.com/v1/checkout/embedded";
-
-//         axios.default.post(_url, {aa:3},)
-//         let response = await axios.default.post(_url, {
-//             key_id: "rzp_test_hkbB5C9e19CA7W",
-//             name: "Ecoflection",
-//             description: "Checkout the first order",
-//             order_id: "order_EkejyVxlf34n7M",
-//             amount: 5000,
-//             currency: "INR",
-//             email: "raghurkm7@gmail.com",
-//             contact: 8722550718,
-//             callback_url: "https://ecoflection-api.herokuapp.com/product/checkout/callback",
-//             cancel_url: "https://ecoflection-api.herokuapp.com/product"
-//         })
-//         // console.log(response.data);
-//         res.set("Content-Type", "text/html");
-//         res.send(response.data);
-//     } catch (err) {
-//         logger.error(err);
-//         throw err
-//     }
-// }
-
 export async function gotoCheckout(req: Request, res: Response) {
-    console.log("index.html");
-    res.sendfile(__dirname + '/html/index.html');
+    let body = {
+        amount: "100000",
+        currency: "INR",
+        receipt: "Receipt 7",
+        payment_capture: '1',
+        notes: ''
+    }
+    let { amount, currency, receipt, payment_capture, notes } = body;
+    try {
+        let order = await createOrder(amount, currency, receipt, payment_capture, notes);
+        let _url = "https://api.razorpay.com/v1/checkout/embedded";
+        let prefill = {
+            name: 'Raghu',
+            email: 'raghurkm7@gmail.com', // Mandatory
+            contact: '8722550718'  // Mandatory
+        }
+        let response = await axios.default.post(_url, {
+            key_id: keys.client_id,
+            name: "Ecoflection",
+            description: "Checkout the first order",
+            order_id: order.id,
+            amount: order.amount,
+            currency: "INR",
+            prefill: prefill,
+            callback_url: "https://ecoflection-api.herokuapp.com/product/checkout/callback",
+            cancel_url: "https://ecoflection-api.herokuapp.com/product"
+        });
+        res.set("Content-Type", "text/html");
+        res.send(response.data);
+    } catch (err) {
+        logger.error(err);
+        throw err;
+    }
 }
+
+// export async function gotoCheckout(req: Request, res: Response) {
+//     console.log("index.html");
+//     res.sendFile(__dirname + '/html/index.html');
+// }
 
 export async function checkoutCallback(req: Request, res: Response) {
     try {
-        logger.info(req.body);
-        console.log(req.body);
-        res.send(req.body);
+        // console.log("In callback ",req.body);
+        logger.info(JSON.stringify(req.body));
+        let signature = req.headers["x-razorpay-signature"];
+        console.log("signature ", signature);
+        logger.info(JSON.stringify(signature));
+        let generatedSignature = await instance.validateWebhookSignature(req.body, signature, 'secret');
+        console.log("generatedSignature",generatedSignature);
+        logger.info(JSON.stringify(generatedSignature))
+        res.json({data:req.body, sig:generatedSignature, sig1: signature});
     } catch (err) {
         logger.error(err);
         throw err

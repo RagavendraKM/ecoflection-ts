@@ -1,10 +1,4 @@
-const razorpay = require('razorpay');
-import { keys } from '../config/razorpay';
-
-const instance = new razorpay({
-    key_id: keys.client_id,
-    key_secret: keys.secret_id
-});
+import { instance } from './index';
 
 export async function create(name: string, email: string, contact: string) {
     try {
